@@ -1,0 +1,42 @@
+#+title: Comparativo entre placa dedicada e placa comercial de desenvolvimento, para processamento i2c 
+#+author: Marco Soares de Mello Alves, Luis HF Bueno 
+#+email:marcoASMA@insper.edu.br, luishfb1@insper.edu.br 
+#+keywords:  FPGA, VHDL, ARDUINO< I2C 
+#+language: pt-br
+
+* 1. Overview
+** 1.1. Objetivos: Qual o proposito? Porque você está fazendo isso?
+   O objetivo do projeto é comparar a uma placa comercial de desenvolvimento, Arduino/esp8266/esp3266, com um hardware de processamento i2c dedicado em placa FPGA
+** 1.2 Processo: Como o projeto será desenvolvido?
+   Será desenvolvido um processador dedicado paara i2c em VHDL, que será comparado quanto a taxa de atualização e tempo de resposta em diversas situações.
+** 1.3 Funções e responsabilidades: Quem fará o que? Quem é o cliente?
+
+** 1.4 Integração com sistemas existentes: Como ele se integra ?
+   
+** 1.5 Terminologia: Definir termos utilizados neste documento.
+
+** 1.6 Segurança: Como a propriedade intelectual sera gerenciada?
+
+* 2. Descrição da função
+
+** 2.1 Funcionalidade: O que o sistema irá fazer precisamente?
+
+** 2.2 Escopo: Liste as fases quais são os integraveis de cada fase.
+   - Levantamento de Hardwares de diferentes arquiteturas para o comparativo.
+   - Desenvolvimento de um programa unificado para ser usado em todos eles
+   - Implementação
+   - Medições de performance, tempo de resposta e comparativos entre hardware.
+
+** 2.3 Protótipos: Como o progresso intermediário será demonstrado?  
+
+** 2.4 Performance: Define e descreva as medições e como elas serão feitas. 
+   Serão analidos os sinais de saída do Master, tempo de resposta de pedidos utilizando o analisador lógico da Saleae para fazer as medições
+
+** 2.5 Usabilidade: Descreva a interface. Seja quantitativo se possivel.
+
+** 2.6 Segurança: Explique quaisquer requisitos de segurança e como eles serão medidos. 
+
+* 3. Entregaveis
+** 3.1 Relatórios: Como o sistema sera descrito?
+** 3.2 Auditoria: Como o cliente avaliará o progresso?
+** 3.3 Resultados: Quais são os entregaveis? Como sabemos quando está pronto?
