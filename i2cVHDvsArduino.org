@@ -1,20 +1,20 @@
-#+title: Comparativo entre placa dedicada e placa comercial de desenvolvimento, para processamento i2c 
+#+title: Estudo comparativo de desempenho do protocolo I²C entre processador dedicado e placas de desenvolvimento
 #+author: Marco Soares de Mello Alves, Luis HF Bueno 
 #+email:marcoASMA@insper.edu.br, luishfb1@insper.edu.br 
-#+keywords:  FPGA, VHDL, ARDUINO< I2C 
+#+keywords: FPGA, VHDL, ARDUINO< I2C 
 #+language: pt-br
 
 * 1. Overview
 ** 1.1. Objetivos: Qual o proposito? Porque você está fazendo isso?
-   O objetivo do projeto é comparar a uma placa comercial de desenvolvimento, Arduino/esp8266/esp3266, com um hardware de processamento i2c dedicado em placa FPGA para atualizar uma matriz de led. Com isso poderemos verificar a viabilidade de utilização de protocolos i2c com maior velocidade de comunicação, e também os beneficios que isto traz para os projetos que o utilizam.
+   O objetivo do projeto é comparar o desempenho do protocolo I²C entre diferentes placas de desenvolvimento, como Arduino UNO(ATmega328p), ESP32(Xtensa LX6), SAME70-XPLD(ARM M7) e demonstrar que o desempenho de um processador dedicado embarcado em uma FPGA é superior. Realizaremos aferições e coleta de dados através de um analisador lógico (SALEAE Logic Pro 16) e como demonstração tentaremos com cada uma das arquiteturas gerar um vídeo em uma matriz de LED i2c. Com isso poderemos verificar a viabilidade de utilização de protocolos i2c com maior velocidade de comunicação, e também os beneficios que isto traz para os projetos que o utilizam.
 ** 1.2 Processo: Como o projeto será desenvolvido?
-   Será desenvolvido um processador dedicado para i2c em VHDL, que será comparado quanto a taxa de atualização e tempo de resposta em diversas situações.
+   Será desenvolvido um processador dedicado para i2c em VHDL utilizando a placa de desenvolvimento Altera DE2-115 (Cyclone IV), que terá seu desempenho comparado com as outras arquitetura já citadas tanto em tempo de resposta quanto a na taxa de atualização em diversas situações.
 ** 1.3 Funções e responsabilidades: Quem fará o que? Quem é o cliente?
-   Os integrantes do grupo desenvolverão a matriz de led, assim como farão em conjunto as analises do estudo para determinar as limitações de cada hardware.
+   Os integrantes do grupo desenvolverão a matriz de led, assim como farão em conjunto as análises do estudo para determinar as limitações de cada hardware.
 ** 1.4 Integração com sistemas existentes: Como ele se integra ?
    Protocolos i2c de alta velocidade podem ser usados para controlarem mais devices(será?) na mesma linha sem experienciar delays significativos nos dispositivo integrados. Também possibilita usar matrizes de led com maior definição e com taxas de atualização maiores.   
 ** 1.5 Terminologia: Definir termos utilizados neste documento.
-
+   I²C, FPGA, VHDL
 ** 1.6 Segurança: Como a propriedade intelectual sera gerenciada?
    O projeto será desenvolvido seguindo a licença MIT
 
@@ -25,14 +25,15 @@
 
 ** 2.2 Escopo: Liste as fases quais são os integraveis de cada fase.
    - Levantamento de Hardwares de diferentes arquiteturas para o comparativo.
-   - Desenvolvimento de um programa unificado para ser usado em todos eles
+   - Desenvolvimento de um código fonte "unificado" para ser usado em todos eles
    - Implementação
    - Medições de performance, tempo de resposta e comparativos entre hardware.
 
-** 2.3 Protótipos: Como o progresso intermediário será demonstrado?  
+** 2.3 Protótipos: Como o progresso intermediário será demonstrado?
+   - Gerar o código de varredura para uma matriz de LED 256x256, porém utilizar apenas 64x16 como protótipo
 
 ** 2.4 Performance: Define e descreva as medições e como elas serão feitas. 
-   Serão analidos os sinais de saída do Master, tempo de resposta de pedidos utilizando o analisador lógico da Saleae para fazer as medições
+   Serão analizados os sinais de saída do Master, tempo de resposta de pedidos utilizando o analisador lógico da Saleae para fazer as medições.
 
 ** 2.5 Usabilidade: Descreva a interface. Seja quantitativo se possivel.
 
