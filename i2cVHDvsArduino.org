@@ -6,20 +6,22 @@
 
 * 1. Overview
 ** 1.1. Objetivos: Qual o proposito? Porque você está fazendo isso?
-   O objetivo do projeto é comparar a uma placa comercial de desenvolvimento, Arduino/esp8266/esp3266, com um hardware de processamento i2c dedicado em placa FPGA
+   O objetivo do projeto é comparar a uma placa comercial de desenvolvimento, Arduino/esp8266/esp3266, com um hardware de processamento i2c dedicado em placa FPGA para atualizar uma matriz de led. Com isso poderemos verificar a viabilidade de utilização de protocolos i2c com maior velocidade de comunicação, e também os beneficios que isto traz para os projetos que o utilizam.
 ** 1.2 Processo: Como o projeto será desenvolvido?
-   Será desenvolvido um processador dedicado paara i2c em VHDL, que será comparado quanto a taxa de atualização e tempo de resposta em diversas situações.
+   Será desenvolvido um processador dedicado para i2c em VHDL, que será comparado quanto a taxa de atualização e tempo de resposta em diversas situações.
 ** 1.3 Funções e responsabilidades: Quem fará o que? Quem é o cliente?
-
+   Os integrantes do grupo desenvolverão a matriz de led, assim como farão em conjunto as analises do estudo para determinar as limitações de cada hardware.
 ** 1.4 Integração com sistemas existentes: Como ele se integra ?
-   
+   Protocolos i2c de alta velocidade podem ser usados para controlarem mais devices(será?) na mesma linha sem experienciar delays significativos nos dispositivo integrados. Também possibilita usar matrizes de led com maior definição e com taxas de atualização maiores.   
 ** 1.5 Terminologia: Definir termos utilizados neste documento.
 
 ** 1.6 Segurança: Como a propriedade intelectual sera gerenciada?
+   O projeto será desenvolvido seguindo a licença MIT
 
 * 2. Descrição da função
 
 ** 2.1 Funcionalidade: O que o sistema irá fazer precisamente?
+   Gerar um teste de estresse nos hardwares selecionados para que possamos medir suas vantagens e limitações comparativamente.
 
 ** 2.2 Escopo: Liste as fases quais são os integraveis de cada fase.
    - Levantamento de Hardwares de diferentes arquiteturas para o comparativo.
