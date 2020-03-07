@@ -1,8 +1,10 @@
 #+title: Estudo comparativo de desempenho do protocolo I²C entre processador dedicado e placas de desenvolvimento
-#+author: Marco Soares de Mello Alves, Luis HF Bueno 
-#+email:marcoASMA@insper.edu.br, luishfb1@insper.edu.br 
+#+author: Marco Soares de Mello Alves, Luis HF Bueno, Francisco Lourenço
+#+email:marcoASMA@insper.edu.br, luishfb1@insper.edu.br, lourenco@insper.edu.br
 #+keywords: FPGA, VHDL, ARDUINO< I2C 
 #+language: pt-br
+#+date: 2020/02/29
+
 
 * 1. Overview
 ** 1.1. Objetivos: Qual o proposito? Porque você está fazendo isso?
@@ -16,7 +18,7 @@
 ** 1.5 Terminologia: Definir termos utilizados neste documento.
    I²C, FPGA, VHDL
 ** 1.6 Segurança: Como a propriedade intelectual sera gerenciada?
-   O projeto será desenvolvido seguindo a licença MIT
+   O projeto será desenvolvido seguindo a licença GNU General Public License v3.0.
 
 * 2. Descrição da função
 

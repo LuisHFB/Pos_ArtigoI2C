@@ -1,0 +1,95 @@
+% Created 2020-03-07 sáb 09:27
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Marco Soares de Mello Alves, Luis HF Bueno, Francisco Lourenço}
+\date{2020/02/29}
+\title{Estudo comparativo de desempenho do protocolo I²C entre processador dedicado e placas de desenvolvimento}
+\hypersetup{
+ pdfauthor={Marco Soares de Mello Alves, Luis HF Bueno, Francisco Lourenço},
+ pdftitle={Estudo comparativo de desempenho do protocolo I²C entre processador dedicado e placas de desenvolvimento},
+ pdfkeywords={FPGA, VHDL, ARDUINO< I2C},
+ pdfsubject={},
+ pdfcreator={Emacs 26.3 (Org mode 9.3.6)}, 
+ pdflang={Brazilian}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+\section{1. Overview}
+\label{sec:org9343e63}
+\subsection{1.1. Objetivos: Qual o proposito? Porque você está fazendo isso?}
+\label{sec:orgb7ea407}
+O objetivo do projeto é comparar o desempenho do protocolo I²C entre diferentes placas de desenvolvimento, como Arduino UNO(ATmega328p), ESP32(Xtensa LX6), SAME70-XPLD(ARM M7) e demonstrar que o desempenho de um processador dedicado embarcado em uma FPGA é superior. Realizaremos aferições e coleta de dados através de um analisador lógico (SALEAE Logic Pro 16) e como demonstração tentaremos com cada uma das arquiteturas gerar um vídeo em uma matriz de LED i2c. Com isso poderemos verificar a viabilidade de utilização de protocolos i2c com maior velocidade de comunicação, e também os beneficios que isto traz para os projetos que o utilizam.
+\subsection{1.2 Processo: Como o projeto será desenvolvido?}
+\label{sec:org35cefe1}
+Será desenvolvido um processador dedicado para i2c em VHDL utilizando a placa de desenvolvimento Altera DE2-115 (Cyclone IV), que terá seu desempenho comparado com as outras arquitetura já citadas tanto em tempo de resposta quanto a na taxa de atualização em diversas situações.
+\subsection{1.3 Funções e responsabilidades: Quem fará o que? Quem é o cliente?}
+\label{sec:org300da3e}
+Os integrantes do grupo desenvolverão a matriz de led, assim como farão em conjunto as análises do estudo para determinar as limitações de cada hardware.
+\subsection{1.4 Integração com sistemas existentes: Como ele se integra ?}
+\label{sec:org60ca817}
+Protocolos i2c de alta velocidade podem ser usados para controlarem mais devices(será?) na mesma linha sem experienciar delays significativos nos dispositivo integrados. Também possibilita usar matrizes de led com maior definição e com taxas de atualização maiores.   
+\subsection{1.5 Terminologia: Definir termos utilizados neste documento.}
+\label{sec:orgd5f1873}
+I²C, FPGA, VHDL
+\subsection{1.6 Segurança: Como a propriedade intelectual sera gerenciada?}
+\label{sec:orgde0a899}
+O projeto será desenvolvido seguindo a licença GNU General Public License v3.0.
+
+\section{2. Descrição da função}
+\label{sec:org3ece0e1}
+
+\subsection{2.1 Funcionalidade: O que o sistema irá fazer precisamente?}
+\label{sec:org0f21608}
+Gerar um teste de estresse nos hardwares selecionados para que possamos medir suas vantagens e limitações comparativamente.
+
+\subsection{2.2 Escopo: Liste as fases quais são os integraveis de cada fase.}
+\label{sec:org6da067d}
+\begin{itemize}
+\item Levantamento de Hardwares de diferentes arquiteturas para o comparativo.
+\item Desenvolvimento de um código fonte "unificado" para ser usado em todos eles
+\item Implementação
+\item Medições de performance, tempo de resposta e comparativos entre hardware.
+\end{itemize}
+
+\subsection{2.3 Protótipos: Como o progresso intermediário será demonstrado?}
+\label{sec:orgf88c5fe}
+\begin{itemize}
+\item Gerar o código de varredura para uma matriz de LED 256x256, porém utilizar apenas 64x16 como protótipo
+\end{itemize}
+
+\subsection{2.4 Performance: Define e descreva as medições e como elas serão feitas.}
+\label{sec:org994205f}
+Serão analizados os sinais de saída do Master, tempo de resposta de pedidos utilizando o analisador lógico da Saleae para fazer as medições.
+
+\subsection{2.5 Usabilidade: Descreva a interface. Seja quantitativo se possivel.}
+\label{sec:org0cfa40c}
+
+\subsection{2.6 Segurança: Explique quaisquer requisitos de segurança e como eles serão medidos.}
+\label{sec:org7e36ac0}
+
+\section{3. Entregaveis}
+\label{sec:orgab2350b}
+\subsection{3.1 Relatórios: Como o sistema sera descrito?}
+\label{sec:org3b29b12}
+\subsection{3.2 Auditoria: Como o cliente avaliará o progresso?}
+\label{sec:orgdc6ff20}
+\subsection{3.3 Resultados: Quais são os entregaveis? Como sabemos quando está pronto?}
+\label{sec:orgfa6f3e1}
+\end{document}
